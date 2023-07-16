@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
@@ -30,8 +31,6 @@ import hudson.model.JobProperty;
 import hudson.model.JobPropertyDescriptor;
 import hudson.model.TopLevelItem;
 import jenkins.branch.Branch;
-
-import javax.annotation.Nonnull;
 
 /**
  * A basic {@link JobProperty} that holds a {@link Branch} so that {@link TemplateDrivenMultiBranchProject}s can
@@ -49,7 +48,7 @@ public class BranchProjectProperty<P extends AbstractProject<P, B> & TopLevelIte
      *
      * @param branch the branch
      */
-    public BranchProjectProperty(@Nonnull Branch branch) {
+    public BranchProjectProperty(@NonNull Branch branch) {
         this.branch = branch;
     }
 
@@ -58,7 +57,7 @@ public class BranchProjectProperty<P extends AbstractProject<P, B> & TopLevelIte
      *
      * @return the branch
      */
-    @Nonnull
+    @NonNull
     public Branch getBranch() {
         return branch;
     }
@@ -68,7 +67,7 @@ public class BranchProjectProperty<P extends AbstractProject<P, B> & TopLevelIte
      *
      * @param branch the branch
      */
-    public void setBranch(@Nonnull Branch branch) {
+    public void setBranch(@NonNull Branch branch) {
         this.branch = branch;
     }
 
@@ -78,7 +77,7 @@ public class BranchProjectProperty<P extends AbstractProject<P, B> & TopLevelIte
     @SuppressWarnings("unused")
     @Extension
     public static class DescriptorImpl extends JobPropertyDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return "Branch";

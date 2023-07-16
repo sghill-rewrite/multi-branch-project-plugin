@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.BulkChange;
 import hudson.Extension;
 import hudson.matrix.MatrixBuild;
@@ -33,7 +34,6 @@ import jenkins.branch.BranchProjectFactoryDescriptor;
 import jenkins.branch.MultiBranchProject;
 import org.kohsuke.stapler.DataBoundConstructor;
 
-import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,7 +112,7 @@ public final class MatrixBranchProjectFactory
     @SuppressWarnings("unused")
     @Extension(optional = true)
     public static class DescriptorImpl extends BranchProjectFactoryDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return "Fixed configuration";

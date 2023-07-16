@@ -23,12 +23,12 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import org.kohsuke.stapler.ResponseImpl;
 import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
-import javax.annotation.Nonnull;
 import java.io.IOException;
 
 /**
@@ -56,7 +56,7 @@ public final class TemplateStaplerResponseWrapper extends ResponseImpl {
      * @throws IOException impossible
      */
     @Override
-    public void sendRedirect(@Nonnull String url) throws IOException {
+    public void sendRedirect(@NonNull String url) throws IOException {
         // No-op
     }
 
@@ -68,7 +68,7 @@ public final class TemplateStaplerResponseWrapper extends ResponseImpl {
      * @throws IOException impossible
      */
     @Override
-    public void sendRedirect(int var1, @Nonnull String var2) throws IOException {
+    public void sendRedirect(int var1, @NonNull String var2) throws IOException {
         // No-op
     }
 
@@ -79,7 +79,7 @@ public final class TemplateStaplerResponseWrapper extends ResponseImpl {
      * @throws IOException impossible
      */
     @Override
-    public void sendRedirect2(@Nonnull String var1) throws IOException {
+    public void sendRedirect2(@NonNull String var1) throws IOException {
         // No-op
     }
 }

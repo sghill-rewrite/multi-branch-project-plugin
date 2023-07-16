@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.init.InitMilestone;
 import hudson.init.Initializer;
@@ -36,8 +37,6 @@ import jenkins.branch.BranchProjectFactory;
 import jenkins.branch.MultiBranchProjectDescriptor;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.QueryParameter;
-
-import javax.annotation.Nonnull;
 
 /**
  * @author Matthew DeTullio
@@ -62,13 +61,13 @@ public final class MavenMultiBranchProject
         return new MavenModuleSet(this, TemplateDrivenMultiBranchProject.TEMPLATE);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected BranchProjectFactory<MavenModuleSet, MavenModuleSetBuild> newProjectFactory() {
         return new MavenBranchProjectFactory();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MultiBranchProjectDescriptor getDescriptor() {
         return (DescriptorImpl) Jenkins.getActiveInstance().getDescriptorOrDie(MavenMultiBranchProject.class);
@@ -92,7 +91,7 @@ public final class MavenMultiBranchProject
      */
     @Extension(optional = true)
     public static class DescriptorImpl extends MultiBranchProjectDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return Messages.MavenMultiBranchProject_DisplayName();

@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.init.InitMilestone;
 import hudson.init.Initializer;
@@ -34,8 +35,6 @@ import hudson.model.TopLevelItem;
 import jenkins.branch.BranchProjectFactory;
 import jenkins.branch.MultiBranchProjectDescriptor;
 import jenkins.model.Jenkins;
-
-import javax.annotation.Nonnull;
 
 /**
  * @author Matthew DeTullio
@@ -58,13 +57,13 @@ public final class FreeStyleMultiBranchProject
         return new FreeStyleProject(this, TemplateDrivenMultiBranchProject.TEMPLATE);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected BranchProjectFactory<FreeStyleProject, FreeStyleBuild> newProjectFactory() {
         return new FreeStyleBranchProjectFactory();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MultiBranchProjectDescriptor getDescriptor() {
         return (DescriptorImpl) Jenkins.getActiveInstance().getDescriptorOrDie(FreeStyleMultiBranchProject.class);
@@ -75,7 +74,7 @@ public final class FreeStyleMultiBranchProject
      */
     @Extension
     public static class DescriptorImpl extends MultiBranchProjectDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return Messages.FreeStyleMultiBranchProject_DisplayName();

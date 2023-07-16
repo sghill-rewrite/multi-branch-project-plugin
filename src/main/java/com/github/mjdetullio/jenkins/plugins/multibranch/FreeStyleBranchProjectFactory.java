@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.model.FreeStyleBuild;
 import hudson.model.FreeStyleProject;
@@ -31,8 +32,6 @@ import jenkins.branch.Branch;
 import jenkins.branch.BranchProjectFactoryDescriptor;
 import jenkins.branch.MultiBranchProject;
 import org.kohsuke.stapler.DataBoundConstructor;
-
-import javax.annotation.Nonnull;
 
 /**
  * @author Matthew DeTullio
@@ -70,7 +69,7 @@ public final class FreeStyleBranchProjectFactory
     @SuppressWarnings("unused")
     @Extension
     public static class DescriptorImpl extends BranchProjectFactoryDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return "Fixed configuration";

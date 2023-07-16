@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.BulkChange;
 import hudson.XmlFile;
 import hudson.model.AbstractBuild;
@@ -41,7 +42,6 @@ import jenkins.security.NotReallyRoleSensitiveCallable;
 import jenkins.util.xml.XMLUtils;
 import org.xml.sax.SAXException;
 
-import javax.annotation.Nonnull;
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.stream.StreamResult;
@@ -60,9 +60,9 @@ public abstract class TemplateDrivenBranchProjectFactory<P extends AbstractProje
     private static final String CLASSNAME = TemplateDrivenBranchProjectFactory.class.getName();
     private static final Logger LOGGER = Logger.getLogger(CLASSNAME);
 
-    @Nonnull
+    @NonNull
     @Override
-    public Branch getBranch(@Nonnull P project) {
+    public Branch getBranch(@NonNull P project) {
         BranchProjectProperty property = project.getProperty(BranchProjectProperty.class);
 
         /*
@@ -82,9 +82,9 @@ public abstract class TemplateDrivenBranchProjectFactory<P extends AbstractProje
         return property.getBranch();
     }
 
-    @Nonnull
+    @NonNull
     @Override
-    public P setBranch(@Nonnull P project, @Nonnull Branch branch) {
+    public P setBranch(@NonNull P project, @NonNull Branch branch) {
         BranchProjectProperty property = project.getProperty(BranchProjectProperty.class);
 
         BulkChange bc = new BulkChange(project);

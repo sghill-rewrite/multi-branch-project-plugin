@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.XmlFile;
 import hudson.cli.declarative.CLIMethod;
@@ -54,8 +55,7 @@ import org.kohsuke.stapler.StaplerResponse;
 import org.kohsuke.stapler.export.Exported;
 import org.kohsuke.stapler.interceptor.RequirePOST;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import edu.umd.cs.findbugs.annotations.CheckForNull;
 import javax.servlet.ServletException;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
@@ -183,12 +183,12 @@ public abstract class TemplateDrivenMultiBranchProject<P extends AbstractProject
      *
      * @return File - "template" directory inside the project directory.
      */
-    @Nonnull
+    @NonNull
     public File getTemplateDir() {
         return new File(getRootDir(), TEMPLATE);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public File getRootDirFor(P child) {
         if (child.equals(template)) {

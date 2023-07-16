@@ -26,12 +26,11 @@ package com.github.mjdetullio.jenkins.plugins.multibranch;
 import com.cloudbees.hudson.plugins.folder.AbstractFolder;
 import com.cloudbees.hudson.plugins.folder.FolderIcon;
 import com.cloudbees.hudson.plugins.folder.FolderIconDescriptor;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.model.BallColor;
 import hudson.model.Job;
 import org.kohsuke.stapler.DataBoundConstructor;
-
-import javax.annotation.Nonnull;
 
 /**
  * {@link FolderIcon} that actually shows a {@link BallColor} status icon, calculated from
@@ -94,7 +93,7 @@ public final class BallColorFolderIcon extends FolderIcon {
      *
      * @return the color of the status ball for the owner.
      */
-    @Nonnull
+    @NonNull
     private BallColor calculateBallColor() {
         if (owner instanceof TemplateDrivenMultiBranchProject
                 && ((TemplateDrivenMultiBranchProject) owner).isDisabled()) {
@@ -126,7 +125,7 @@ public final class BallColorFolderIcon extends FolderIcon {
     @SuppressWarnings(UNUSED)
     @Extension
     public static class DescriptorImpl extends FolderIconDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return "Aggregate Ball Color Status Icon (All Jobs)";

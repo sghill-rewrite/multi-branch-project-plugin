@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.Util;
 import hudson.init.InitMilestone;
@@ -37,8 +38,6 @@ import jenkins.branch.BranchProjectFactory;
 import jenkins.branch.MultiBranchProjectDescriptor;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.QueryParameter;
-
-import javax.annotation.Nonnull;
 
 
 /**
@@ -64,13 +63,13 @@ public final class IvyMultiBranchProject extends TemplateDrivenMultiBranchProjec
         return new IvyModuleSet(this, TemplateDrivenMultiBranchProject.TEMPLATE);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected BranchProjectFactory<IvyModuleSet, IvyModuleSetBuild> newProjectFactory() {
         return new IvyBranchProjectFactory();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MultiBranchProjectDescriptor getDescriptor() {
         return (DescriptorImpl) Jenkins.getActiveInstance().getDescriptorOrDie(IvyMultiBranchProject.class);
@@ -114,7 +113,7 @@ public final class IvyMultiBranchProject extends TemplateDrivenMultiBranchProjec
      */
     @Extension(optional = true)
     public static class DescriptorImpl extends MultiBranchProjectDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return Messages.IvyMultiBranchProject_DisplayName();

@@ -23,6 +23,7 @@
  */
 package com.github.mjdetullio.jenkins.plugins.multibranch;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.init.InitMilestone;
 import hudson.init.Initializer;
@@ -34,8 +35,6 @@ import hudson.model.TopLevelItem;
 import jenkins.branch.BranchProjectFactory;
 import jenkins.branch.MultiBranchProjectDescriptor;
 import jenkins.model.Jenkins;
-
-import javax.annotation.Nonnull;
 
 /**
  * @author Alastair D'Silva
@@ -60,13 +59,13 @@ public final class MatrixMultiBranchProject extends TemplateDrivenMultiBranchPro
         return new MatrixProject(this, TemplateDrivenMultiBranchProject.TEMPLATE);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected BranchProjectFactory<MatrixProject, MatrixBuild> newProjectFactory() {
         return new MatrixBranchProjectFactory();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MultiBranchProjectDescriptor getDescriptor() {
         return (DescriptorImpl) Jenkins.getActiveInstance().getDescriptorOrDie(MatrixMultiBranchProject.class);
@@ -77,7 +76,7 @@ public final class MatrixMultiBranchProject extends TemplateDrivenMultiBranchPro
      */
     @Extension(optional = true)
     public static class DescriptorImpl extends MultiBranchProjectDescriptor {
-        @Nonnull
+        @NonNull
         @Override
         public String getDisplayName() {
             return Messages.MatrixMultiBranchProject_DisplayName();
